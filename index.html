@@ -215,9 +215,54 @@ setInterval(createAmbientBubble, 800);
       padding: 8rem 2rem;
     }
   }
+  .bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 40% 30%, rgba(178,216,216,0.1), transparent 70%) no-repeat;
+    z-index: 0;
+    animation: drift 18s ease-in-out infinite alternate;
+  }
+
+  @keyframes drift {
+    0% { background-position: 40% 30%; }
+    100% { background-position: 60% 50%; }
+  }
+
+  .floating-shape {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: rgba(187,176,224,0.15);
+    border-radius: 50%;
+    filter: blur(20px);
+    animation: floatShape 12s ease-in-out infinite;
+    z-index: 0;
+  }
+
+  .floating-shape.one {
+    top: 80%;
+    left: 20%;
+  }
+  .floating-shape.two {
+    top: 30%;
+    right: 15%;
+  }
+
+  @keyframes floatShape {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.05); }
+    100% { transform: translateY(0) scale(1); }
+  }
 </style>
 </head>
 <body>
+  <div class="bg-overlay"></div>
+  <div class="floating-shape one"></div>
+  <div class="floating-shape two"></div>
   <div class="glow-blob"></div>
   <div id="bubble-container"></div>
 
