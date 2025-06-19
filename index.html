@@ -25,23 +25,6 @@ function createAmbientBubble() {
   setTimeout(() => bubble.remove(), 4000);
 }
 setInterval(createAmbientBubble, 800);
-gsap.registerPlugin(ScrollTrigger);
-
-ScrollTrigger.create({
-  trigger: '.hero',
-  start: 'top top',
-  end: 'bottom center',
-  scrub: true,
-  onUpdate: (self) => {
-    const progress = self.progress;
-    const dirty = document.querySelector('.dirty-img');
-    const clean = document.querySelector('.clean-img');
-    dirty.style.opacity = 1 - progress;
-    dirty.style.transform = `translateX(-50%) scale(${1 + (1 - progress) * 0.2})`;
-    clean.style.opacity = progress;
-    clean.style.transform = `translateX(-50%) scale(${0.8 + progress * 0.2})`;
-  }
-});
 </script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -283,11 +266,11 @@ ScrollTrigger.create({
   <div class="glow-blob"></div>
   <div id="bubble-container"></div>
 
-  <section class="section hero" style="position: relative; overflow: hidden;">
-<img src="20250618_2224_Realistic Dirty Sponge_simple_compose_01jy2zyce0ep6b6tsy5j2ygqht.png" class="dirty-img" ...>
+  <section class="section hero">
+    <img src="https://images.pexels.com/photos/4107118/pexels-photo-4107118.jpeg" class="floating-png float-left" alt="Floating sponge" style="max-width: 180px; height: auto;">
     <h1><span class="word">Soft</span> <span class="word">power.</span> <span class="word">Big</span> <span class="word">impact.</span></h1>
     <p>We clean with intention. Because your space deserves more than surface-level shine.</p>
-<img src="20250618_2228_Sparkling Light Beam_simple_compose_01jy306t1sfvtbwdqjgs3d3ec6.png" class="clean-img" ...>
+    <img src="https://images.pexels.com/photos/4108789/pexels-photo-4108789.jpeg" class="floating-png float-right" alt="Floating soap" style="max-width: 180px; height: auto;">
   </section>
 
   <section class="section quote-block">
